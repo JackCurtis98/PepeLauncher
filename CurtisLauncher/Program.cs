@@ -26,7 +26,7 @@ namespace CurtisLauncher
             for (int i = 0; i < instances; i++)
             {
                 //Start shit i guess
-                var proc = Process.Start("C:\\ProgramData\\Jagex\\launcher\\rs2client.exe");
+                var proc = Process.Start("C:\\ProgramData\\Jagex\\launcher\\rs2client.exe", "https://world1.runescape.com/jav_config.ws?binaryType=2");
 
                 while (processList.Count == 0)
                 {
@@ -35,7 +35,7 @@ namespace CurtisLauncher
                     injectedProcs.Add(newProc.Id);
                     System.Threading.Thread.Sleep(1500);
                     processList = (List<Process>)Util.GetChildProcesses(newProc);
-                    System.Threading.Thread.Sleep(3000);
+                    System.Threading.Thread.Sleep(4000);
                 }
 
                 var rs2ClientProc = processList.First();
